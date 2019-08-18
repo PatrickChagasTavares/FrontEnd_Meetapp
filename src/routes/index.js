@@ -16,10 +16,10 @@ export default function Routes() {
       <Route path="/" exact component={SignIn} />
       <Route path="/register" exact component={SignUp} />
 
-      <Route path="/dashboard" exact component={Dashboard} />
-      <Route path="/details" exact component={Details} />
-      <Route path="/meetup" exact component={Meetup} />
-      <Route path="/profile" exact component={Profile} />
+      <Route path="/dashboard" exact component={Dashboard} isPrivate />
+      <Route path="/details" exact component={Details} isPrivate />
+      <Route path="/meetup" exact component={Meetup} isPrivate />
+      <Route path="/profile" exact component={Profile} isPrivate />
     </Switch>
   );
 }

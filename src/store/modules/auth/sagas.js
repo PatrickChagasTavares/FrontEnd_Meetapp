@@ -13,7 +13,7 @@ export function* signIn({ payload }) {
     password,
   });
 
-  const { user, token } = response.data;
+  const { token, user } = response.data;
 
   yield put(signInSuccess(token, user));
 

@@ -1,8 +1,11 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
+import { FaSpinner } from 'react-icons/fa';
 import * as Yup from 'yup';
 
+import { SubmitButton } from '~/pages/_layouts/auth/styles';
 import logo from '~/assets/logo.svg';
 
 /**
@@ -19,6 +22,8 @@ const schema = Yup.object().shape({
 });
 
 export default function SignUp() {
+  const loading = useSelector(state => state.auth.loading);
+
   function handleSubmit(data) {
     console.tron.log(data);
   }
@@ -35,7 +40,16 @@ export default function SignUp() {
           placeholder="Sua senha secreta"
         />
 
-        <button type="submit">Criar conta</button>
+        <SubmitButton type="submit">
+          {loading ? (
+            <>
+              <FaSpinner color="#fff" size={14} />
+              {' Carregando...'}
+            </>
+          ) : (
+            'Criar conta'
+          )}
+        </SubmitButton>
         <Link to="/">Já tenho login</Link>
       </Form>
     </>

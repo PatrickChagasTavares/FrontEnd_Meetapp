@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { darken } from 'polished';
 
 export const Wrapper = styled.div`
@@ -33,22 +33,6 @@ export const Content = styled.div`
       }
     }
 
-    button {
-      margin: 5px 0 0;
-      height: 50px;
-      background: #f94d6a;
-      font-weight: bold;
-      color: #fff;
-      border: 0;
-      border-radius: 4px;
-      font-size: 16px;
-      transition: background 0.2s;
-
-      &:hover {
-        background: ${darken(0.2, '#f94d6a')};
-      }
-    }
-
     span {
       color: #f94d6a;
       align-self: flex-start;
@@ -67,4 +51,39 @@ export const Content = styled.div`
       }
     }
   }
+`;
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+export const SubmitButton = styled.button.attrs(props => ({
+  type: 'submit',
+  disabled: props.loading,
+}))`
+  margin: 5px 0 0;
+  height: 50px;
+  background: #f94d6a;
+  font-weight: bold;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: background 0.2s;
+
+  &:hover {
+    background: ${darken(0.2, '#f94d6a')};
+  }
+  ${props =>
+    props.loading &&
+    css`
+      svg {
+        animation: ${rotate} 2s linear infinite;
+      }
+    `}
 `;

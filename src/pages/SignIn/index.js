@@ -2,8 +2,10 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
+import { FaSpinner } from 'react-icons/fa';
 import * as Yup from 'yup';
 
+import { SubmitButton } from '~/pages/_layouts/auth/styles';
 import { signInRequest } from '~/store/modules/auth/actions';
 
 import logo from '~/assets/logo.svg';
@@ -38,7 +40,16 @@ export default function SignIn() {
           placeholder="Sua senha secreta"
         />
 
-        <button type="submit">{loading ? 'Carregando...' : 'Entrar'}</button>
+        <SubmitButton loading={loading}>
+          {loading ? (
+            <>
+              <FaSpinner color="#fff" size={14} />
+              {' Carregando...'}
+            </>
+          ) : (
+            'Entrar'
+          )}
+        </SubmitButton>
         <Link to="/register">Criar conta grátis</Link>
       </Form>
     </>

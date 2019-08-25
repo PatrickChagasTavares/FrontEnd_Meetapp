@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Notifications from '~/components/Notifications';
@@ -9,6 +9,7 @@ import logo from '~/assets/logo_dashboard.svg';
 import { Container, Content, Profile } from './styles';
 
 export default function Header() {
+  const profile = useSelector(state => state.user.profile);
   const dispatch = useDispatch();
 
   function handleSignOut() {
@@ -27,13 +28,10 @@ export default function Header() {
 
           <Profile>
             <div>
-              <strong>Patrick Chagas</strong>
+              <strong>{profile.name}</strong>
               <Link to="profile">Meu Perfil</Link>
             </div>
-            <img
-              src="https://api.adorable.io/avatars/50/abott@adorable.png"
-              alt="Patrick Chagas"
-            />
+            <img src={profile.avatar.url} alt="avatar" />
             <button type="submit" onClick={handleSignOut}>
               Sair
             </button>

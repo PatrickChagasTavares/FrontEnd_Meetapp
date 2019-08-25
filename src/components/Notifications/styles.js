@@ -32,7 +32,7 @@ export const NotificationList = styled.div`
   width: 260px;
   left: calc(50% - 130px);
   top: calc(100% + 30px);
-  background: rgba(249, 77, 106, 0.5);
+  background: rgba(249, 77, 106, 0.9);
   border-radius: 4px;
   padding: 15px 5px;
   display: ${props => (props.visible ? 'block' : 'none')};
@@ -46,7 +46,7 @@ export const NotificationList = styled.div`
     height: 0;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
-    border-bottom: 20px solid rgba(249, 77, 106, 0.5);
+    border-bottom: 20px solid rgba(249, 77, 106, 0.9);
   }
 `;
 

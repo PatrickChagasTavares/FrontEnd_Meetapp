@@ -14,12 +14,12 @@ export default function Routes() {
   return (
     <Switch>
       <Route path="/" exact component={SignIn} />
-      <Route path="/register" exact component={SignUp} />
+      <Route path="/register" component={SignUp} />
 
-      <Route path="/dashboard" exact component={Dashboard} isPrivate />
-      <Route path="/details/:id" exact component={Details} isPrivate />
-      <Route path="/meetup" exact component={Meetup} isPrivate />
-      <Route path="/profile" exact component={Profile} isPrivate />
+      <Route path="/dashboard" component={Dashboard} isPrivate />
+      <Route path="/details/:id" component={Details} isPrivate />
+      <Route path="/meetup" component={Meetup} isPrivate />
+      <Route path="/profile" component={Profile} isPrivate />
     </Switch>
   );
 }

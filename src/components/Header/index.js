@@ -31,7 +31,14 @@ export default function Header() {
               <strong>{profile.name}</strong>
               <Link to="profile">Meu Perfil</Link>
             </div>
-            <img src={profile.avatar.url} alt="avatar" />
+            <img
+              src={
+                profile.avatar
+                  ? profile.avatar.url
+                  : 'https://api.adorable.io/avatars/50/abott@adorable.png'
+              }
+              alt="avatar"
+            />
             <button type="submit" onClick={handleSignOut}>
               Sair
             </button>
